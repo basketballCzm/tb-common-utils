@@ -182,6 +182,26 @@ namespace tbsys {
         }
         return it1->second.c_str();
     }
+
+
+    bool CConfig::setString(const char *section, const std::string& key, const char *d)
+    {
+        if(NULL == d)
+        {
+            return false;
+        }
+        STR_MAP_ITER it = m_configMap.find(section);
+        if (it == m_configMap.end()) {
+            return false;
+         }
+         STR_STR_MAP_ITER it1 = it->second->find(key);
+        if (it1 == it->second->end()) {
+            return false;
+        }
+        it->second->erase(it1);
+        it->second->insert(pair<string,string>(key,std::string(d)));
+         return true;
+    }
     
     /**
      * 取一string列表

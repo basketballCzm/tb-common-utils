@@ -30,6 +30,8 @@ int main(int argc, char *argv[])
     }
     
     fprintf(stderr, "string=%s\n", TBSYS_CONFIG.getString("test_section", "string"));
+    TBSYS_CONFIG.setString("test_section","string","caster");
+    fprintf(stderr, "string=%s\n", TBSYS_CONFIG.getString("test_section", "string"));
     fprintf(stderr, "int=%d\n", TBSYS_CONFIG.getInt("test_section", "int"));
     
     vector<const char*> strList = TBSYS_CONFIG.getStringList("test_section", "stringlist");

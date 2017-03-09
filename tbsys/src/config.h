@@ -60,6 +60,7 @@ namespace tbsys {
             int load(const char *filename);
             // 取一个字符串
             const char *getString(const char *section, const std::string& key, const char *d = NULL);
+            bool setString(const char *section, const std::string& key, const char *d = NULL);
             // 取一string列表
             std::vector<const char*> getStringList(const char *section, const std::string& key);
             // 取一个整型
